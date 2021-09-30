@@ -1,24 +1,27 @@
 import React, {useState, useCallback} from 'react';
-import Age from './Age';
-import Count from './Count';
+import AgeHook from './AgeHook';
+import CountHook from './CountHook';
 // for performance optimization 
 const UseCallBackHook = () => {
-    
+console.log('use callback  rendered')
 const [count, setCount] = useState(0);
 const [age, setAge] = useState(26);
 
-const incrementCount= ()=>{
+const incrementCount= useCallback(()=>{
     setCount((count)=>count+1);
-}
+},[count])
 
-const incrementAge=()=>{
+const incrementAge=useCallback(()=>{
     setAge((age)=>age+1);
-}
+},[age])
 
     return (<>
        <p>Use CallBack Hook</p>
-       <Age increment={incrementAge}></Age>
-       <Count increment={incrementCount}></Count>
+       <AgeHook increment={incrementAge}/>
+        Age:{age}
+       <CountHook increment={incrementCount}/>
+        Count:{count}
+
         </>
         )
 }
