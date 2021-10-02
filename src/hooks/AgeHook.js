@@ -11,4 +11,4 @@ const AgeHook = ({increment}) => {
 
 export default React.memo(AgeHook);
 
-// memo prevents re-render until the props or state changes
+// memo prevents re-render until the props or state changes because by default child component re-renders if parent component renders

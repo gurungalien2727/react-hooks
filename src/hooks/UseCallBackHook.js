@@ -2,6 +2,7 @@ import React, {useState, useCallback} from 'react';
 import AgeHook from './AgeHook';
 import CountHook from './CountHook';
 // for performance optimization 
+// prevents recreation of function after each render
 const UseCallBackHook = () => {
 console.log('use callback  rendered')
 const [count, setCount] = useState(0);
